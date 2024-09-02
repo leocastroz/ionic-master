@@ -1,12 +1,31 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import TheNotification from './components/TheNotification.vue';
+import { ref, onMounted } from 'vue';
+
+onMounted(() => {
+  setTimeout(() => {
+    notificationRef.value.setNotification();
+  }, 2000);
+});
+
+const notificationRef = ref(null);
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <!-- <TheNotification ref="notificationRef" titulo="Sucesso!" subtitulo="A operação foi concluída com sucesso." type="success" timeout="5000" /> -->
 
+    <TheNotification ref="notificationRef" titulo="Erro!" subtitulo="Houve um problema ao processar a operação." type="error" timeout="5000" />
+
+    <!-- <TheNotification ref="notificationRef" titulo="Parabéns" subtitulo="Seu primeiro acesso foi registrado" timeout="5000" /> -->
+    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <!-- <TheNotification titulo="Custom Title" subtitulo="Custom Subtitle" timeout="5000" /> -->
+     <div>
+      <!-- <TheNotification ref="notificationRef" titulo="Custom Title" subtitulo="Custom Subtitle" timeout="5000" /> -->
+      <!-- <button @click="showNotification">Mostrar Notificação</button> -->
+    </div>
     <div class="wrapper">
       <HelloWorld msg="TESTING" />
 
