@@ -31,7 +31,7 @@ const notificationRef = ref(null);
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/about">About close</RouterLink>
       </nav>
     </div>
   </header>
